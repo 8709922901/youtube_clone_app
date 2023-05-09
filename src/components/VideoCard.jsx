@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
-import { CheckCircle } from "@mui/icons-material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import {
   demoThumbnailUrl,
@@ -21,16 +21,17 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { md: "320px", xs: "100%" },
+        width: { md: "228px", xs: "100%", sm: "358px" },
         boxShadow: "none",
         borderRadius: "0",
       }}
     >
-      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
+      <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}>
         <CardMedia
-          image={snippet?.thumbnails?.high?.url}
+          image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
           alt={snippet?.title}
-          sx={{ width: 358, height: 180 }}
+          // sx={{ width: { xs: "100%", sm: "358px" }, height: 180 }}
+          sx={{ width: 228, height: 130 }}
         />
       </Link>
       <CardContent sx={{ backgroundColor: "#1e1e1e", height: "106px" }}>
@@ -46,9 +47,11 @@ const VideoCard = ({
               : demoChannelUrl
           }
         >
-          <Typography variant="subtitle2" fontWeight="bold" color="gray">
+          <Typography variant="subtitle2" color="gray">
             {snippet?.channelTitle || demoChannelTitle}
-            <CheckCircle sx={{ fontSize: 12, color: "gray", ml: "5px" }} />
+            <CheckCircleIcon
+              sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
+            />
           </Typography>
         </Link>
       </CardContent>
