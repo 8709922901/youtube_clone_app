@@ -1,6 +1,5 @@
 import { Category } from "@mui/icons-material";
 import { Stack } from "@mui/material";
-import { style } from "@mui/system";
 import React from "react";
 import { categories } from "../utils/constants";
 
@@ -34,7 +33,7 @@ const SideBar = ({ selectedCategory, setSelectedCategory }) => {
           </span>
           <span
             style={{
-              opacity: Category.name === selectedCategory ? "1" : "0.8",
+              opacity: Category.name === selectedCategory ? "1" : "1.5",
             }}
           >
             {Category.name}
